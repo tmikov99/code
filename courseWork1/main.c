@@ -57,16 +57,16 @@ int getInputFromMenu()
 {
 	int input;
 
-	printf("Изберете опция от 0-4\n");
-	printf("1. Четене от файл и запис във файл\n");
-	printf("2. Четене на файл и изписване на екрана\n");
-	printf("3. Четене от клавиатурата и запис във файл\n");
-	printf("4. Четене от клавиатурата и изписване на екрана\n");
-	printf("0. Край\n");
+	printf("Г€Г§ГЎГҐГ°ГҐГІГҐ Г®ГЇГ¶ГЁГї Г®ГІ 0-4\n");
+	printf("1. Г—ГҐГІГҐГ­ГҐ Г®ГІ ГґГ Г©Г« ГЁ Г§Г ГЇГЁГ± ГўГєГў ГґГ Г©Г«\n");
+	printf("2. Г—ГҐГІГҐГ­ГҐ Г­Г  ГґГ Г©Г« ГЁ ГЁГ§ГЇГЁГ±ГўГ Г­ГҐ Г­Г  ГҐГЄГ°Г Г­Г \n");
+	printf("3. Г—ГҐГІГҐГ­ГҐ Г®ГІ ГЄГ«Г ГўГЁГ ГІГіГ°Г ГІГ  ГЁ Г§Г ГЇГЁГ± ГўГєГў ГґГ Г©Г«\n");
+	printf("4. Г—ГҐГІГҐГ­ГҐ Г®ГІ ГЄГ«Г ГўГЁГ ГІГіГ°Г ГІГ  ГЁ ГЁГ§ГЇГЁГ±ГўГ Г­ГҐ Г­Г  ГҐГЄГ°Г Г­Г \n");
+	printf("0. ГЉГ°Г Г©\n");
 
 	do
 	{
-		printf("\nИзберете опция: ");
+		printf("\nГ€Г§ГЎГҐГ°ГҐГІГҐ Г®ГЇГ¶ГЁГї: ");
 		fflush(stdin);
 		scanf("%d", &input);
 	} while ((input < 0) || (input > 4));
@@ -144,7 +144,7 @@ void consoleToFile()
 		return;
 	}
 
-	printf("\nВъведете програмата:\n");
+	printf("\nГ‚ГєГўГҐГ¤ГҐГІГҐ ГЇГ°Г®ГЈГ°Г Г¬Г ГІГ :\n");
 	results(stdin, fileOutput);
 
 	if (fclose(fileOutput) != 0)
@@ -156,7 +156,7 @@ void consoleToFile()
 
 void consoleToConsole()
 {
-	printf("\nВъведете програмата:\n");
+	printf("\nГ‚ГєГўГҐГ¤ГҐГІГҐ ГЇГ°Г®ГЈГ°Г Г¬Г ГІГ :\n");
 	results(stdin, stdout);
 }
 
@@ -164,20 +164,20 @@ void getFileName(char * arr, int mode)
 {
 	if (FALSE == mode)
 	{
-		printf("\nВъведете файл за записване: ");
+		printf("\nГ‚ГєГўГҐГ¤ГҐГІГҐ ГґГ Г©Г« Г§Г  Г§Г ГЇГЁГ±ГўГ Г­ГҐ: ");
 		fflush(stdin);
 		scanf("%31s", arr);
 	}
 	else
 	{
-		printf("\nВъведете файл за четене(.c): ");
+		printf("\nГ‚ГєГўГҐГ¤ГҐГІГҐ ГґГ Г©Г« Г§Г  Г·ГҐГІГҐГ­ГҐ(.c): ");
 		fflush(stdin);
 		scanf("%31s", arr);
 
 		while (FALSE == ((arr[strlen(arr) - 2] == '.') && (arr[strlen(arr) - 1] == 'c')))
 		{
-			printf("\nERROR: %s не завършва на .c!\n", arr);
-			printf("\nВъведете коректен файл: ");
+			printf("\nERROR: %s Г­ГҐ Г§Г ГўГєГ°ГёГўГ  Г­Г  .c!\n", arr);
+			printf("\nГ‚ГєГўГҐГ¤ГҐГІГҐ ГЄГ®Г°ГҐГЄГІГҐГ­ ГґГ Г©Г«: ");
 			scanf("%s", arr);
 		}
 	}
@@ -193,8 +193,8 @@ void results(FILE *input, FILE *output)
 		counter(line, data);
 	}
 
-	fprintf(output, "\nБроят на значещите символи в коментарите е: %d\n", data[COMMENTS]);
-	fprintf(output, "Броят на символите в идентификаторите е: %d\n", data[IDENTIFICATORS]);
+	fprintf(output, "\nГЃГ°Г®ГїГІ Г­Г  Г§Г­Г Г·ГҐГ№ГЁГІГҐ Г±ГЁГ¬ГўГ®Г«ГЁ Гў ГЄГ®Г¬ГҐГ­ГІГ Г°ГЁГІГҐ ГҐ: %d\n", data[COMMENTS]);
+	fprintf(output, "ГЃГ°Г®ГїГІ Г­Г  Г±ГЁГ¬ГўГ®Г«ГЁГІГҐ Гў ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°ГЁГІГҐ ГҐ: %d\n", data[IDENTIFICATORS]);
 }
 
 void counter(char *line, int *data)
